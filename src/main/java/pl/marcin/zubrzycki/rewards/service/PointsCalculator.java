@@ -13,7 +13,7 @@ import java.util.function.BiFunction;
 import java.util.stream.IntStream;
 
 @Component
-public class PointsCalculator {
+class PointsCalculator {
 
     private static final BigDecimal HUNDRED = BigDecimal.valueOf(100.0);
     private static final BigDecimal FIFTY = BigDecimal.valueOf(50.0);
