@@ -8,14 +8,9 @@ import pl.marcin.zubrzycki.rewards.entity.Transaction;
 import pl.marcin.zubrzycki.rewards.error.UserNotFound;
 import pl.marcin.zubrzycki.rewards.repository.TransactionRepository;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.Month;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiFunction;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 @Service
 @RequiredArgsConstructor

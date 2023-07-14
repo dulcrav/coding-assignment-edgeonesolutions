@@ -1,6 +1,5 @@
 package pl.marcin.zubrzycki.rewards.mapper;
 
-import org.springframework.stereotype.Component;
 import pl.marcin.zubrzycki.rewards.api.dto.NewTransactionDto;
 import pl.marcin.zubrzycki.rewards.api.dto.TransactionDto;
 import pl.marcin.zubrzycki.rewards.entity.Transaction;
