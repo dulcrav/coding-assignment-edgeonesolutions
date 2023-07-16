@@ -8,7 +8,6 @@ import pl.marcin.zubrzycki.rewards.entity.Transaction;
 import pl.marcin.zubrzycki.rewards.error.UserNotFound;
 import pl.marcin.zubrzycki.rewards.repository.TransactionRepository;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.function.BiFunction;
 
@@ -27,15 +26,12 @@ public class RewardServiceImpl implements RewardService {
             throw new UserNotFound(userId);
         }
 
-        BiFunction<Integer, Transaction, Integer> reducer = (partialPointsResult, transaction) -> partialPointsResult + pointsCalculator.calculatePoints(transaction);
+        BiFunction<Integer, Transaction, Integer> reducer = (partialPointsResult, transaction) -> partialPointsResult + pointsCalculator.calculatePoints(transaction.getAmount());
 
         int totalPoints = transactions.stream()
                 .reduce(0, reducer, Integer::sum);
 
-        LocalDate maxDate = transactions.stream().map(Transaction::getDate).max(LocalDate::compareTo).get();
-        LocalDate minDate = maxDate.minusMonths(2);
-
-        List<MonthlyRewardDto> rewardsByMonth = pointsCalculator.calculatePointsByMonth(minDate, maxDate, transactions, reducer);
+        List<MonthlyRewardDto> rewardsByMonth = pointsCalculator.calculatePointsByMonth(transactions, reducer);
 
         return RewardDto.builder()
                 .totalPoints(totalPoints)

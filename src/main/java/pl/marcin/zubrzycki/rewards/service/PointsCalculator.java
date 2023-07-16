@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 import java.util.function.BiFunction;
 import java.util.stream.IntStream;
@@ -19,35 +20,45 @@ class PointsCalculator {
     private static final BigDecimal FIFTY = BigDecimal.valueOf(50.0);
     private static final int FIFTY_POINTS = 50;
 
-    Integer calculatePoints(Transaction transaction) {
+    Integer calculatePoints(BigDecimal transactionAmount) {
+        if (transactionAmount.compareTo(BigDecimal.ZERO) < 0) {
+            return 0;
+        }
+
         int points = 0;
-        BigDecimal amount = transaction.getAmount();
-        if (amount.compareTo(HUNDRED) > 0) {
+        if (transactionAmount.compareTo(HUNDRED) > 0) {
             points += FIFTY_POINTS;
-            BigDecimal additionalPointsToAdd = amount.subtract(HUNDRED);
+            BigDecimal additionalPointsToAdd = transactionAmount.subtract(HUNDRED);
             points += additionalPointsToAdd.intValue() * 2;
-        } else if (amount.compareTo(FIFTY) > 0) {
-            BigDecimal pointsToAdd = amount.subtract(FIFTY);
+        } else if (transactionAmount.compareTo(FIFTY) > 0) {
+            BigDecimal pointsToAdd = transactionAmount.subtract(FIFTY);
             points += pointsToAdd.intValue();
         }
         return points;
     }
 
-    List<MonthlyRewardDto> calculatePointsByMonth(LocalDate minDate, LocalDate maxDate, List<Transaction> allTransactions,
+    List<MonthlyRewardDto> calculatePointsByMonth(List<Transaction> allTransactions,
                                                   BiFunction<Integer, Transaction, Integer> reducer) {
+        LocalDate maxDate = allTransactions.stream().map(Transaction::getDate).max(LocalDate::compareTo).get();
+        LocalDate minDate = maxDate.minusMonths(2);
+
         List<MonthlyRewardDto> rewardsByMonth = new ArrayList<>();
-        IntStream.range(minDate.getMonthValue(), maxDate.getMonthValue() + 1).forEach(monthIndex -> {
-            Month month = Month.of(monthIndex);
+        for (LocalDate date = minDate; !date.isAfter(maxDate); date = date.plusMonths(1)) {
+            Month month = date.getMonth();
             int points = allTransactions.stream()
                     .filter(transaction -> transaction.getDate().getMonth() == month)
                     .reduce(0, reducer, Integer::sum);
-            MonthlyRewardDto monthlyReward = MonthlyRewardDto
-                    .builder()
-                    .month(month.name())
-                    .points(points)
-                    .build();
-            rewardsByMonth.add(monthlyReward);
-        });
+
+            rewardsByMonth.add(createMonthlyReward(month.name(), points));
+        }
         return rewardsByMonth;
+    }
+
+    private MonthlyRewardDto createMonthlyReward(String monthName, int points) {
+        return MonthlyRewardDto
+                .builder()
+                .month(monthName)
+                .points(points)
+                .build();
     }
 }
