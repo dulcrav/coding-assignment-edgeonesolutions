@@ -1,5 +1,6 @@
 package pl.marcin.zubrzycki.rewards.api;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,12 +18,12 @@ public class TransactionController {
     private final TransactionService transactionService;
 
     @PostMapping
-    ResponseEntity<TransactionDto> createTransaction(@RequestBody NewTransactionDto newTransactionDto) {
+    ResponseEntity<TransactionDto> createTransaction(@RequestBody @Valid NewTransactionDto newTransactionDto) {
         return new ResponseEntity<>(transactionService.createTransaction(newTransactionDto), HttpStatus.CREATED);
     }
 
     @PatchMapping("/{transactionId}")
-    ResponseEntity<TransactionDto> updateTransaction(@PathVariable Long transactionId, @RequestBody EditTransactionDto editTransactionDto) {
+    ResponseEntity<TransactionDto> updateTransaction(@PathVariable Long transactionId, @RequestBody @Valid EditTransactionDto editTransactionDto) {
         return new ResponseEntity<>(transactionService.editTransaction(transactionId, editTransactionDto), HttpStatus.OK);
     }
 

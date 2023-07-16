@@ -13,7 +13,7 @@ import pl.marcin.zubrzycki.rewards.service.RewardService;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/reward")
-public class RewardsController {
+public class RewardController {
 
     private final RewardService rewardService;
 
