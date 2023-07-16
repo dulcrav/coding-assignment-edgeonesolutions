@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoSettings;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import pl.marcin.zubrzycki.rewards.api.dto.MonthlyRewardDto;
@@ -20,12 +19,12 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @MockitoSettings
-class RewardsControllerTest {
+class RewardControllerTest {
     @Mock
     private RewardService rewardService;
 
     @InjectMocks
-    private RewardsController systemUnderTest;
+    private RewardController systemUnderTest;
 
     @Test
     void willCalculateReward() {
