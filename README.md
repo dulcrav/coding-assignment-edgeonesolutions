@@ -12,6 +12,8 @@ Given a record of every transaction during a three-month period, application cal
 
 To launch application use CodingAssignmentApplication.java in your IDE, or use `mvn spring-boot:run` in project directory.
 
+Project uses in-memory database H2, so no additional setup for database is needed.
+
 ### Endpoints
 
 * `POST /api/v1/transaction` - creates a transaction providing the amount, date in `YYYY-MM-DD` format and userId
