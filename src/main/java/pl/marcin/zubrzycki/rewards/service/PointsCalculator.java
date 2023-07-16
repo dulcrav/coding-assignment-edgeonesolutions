@@ -8,10 +8,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
-import java.util.EnumSet;
 import java.util.List;
 import java.util.function.BiFunction;
-import java.util.stream.IntStream;
 
 @Component
 class PointsCalculator {
