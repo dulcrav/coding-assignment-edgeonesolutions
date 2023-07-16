@@ -3,7 +3,7 @@ package pl.marcin.zubrzycki.rewards.mapper;
 import org.junit.jupiter.api.Test;
 import pl.marcin.zubrzycki.rewards.api.dto.NewTransactionDto;
 import pl.marcin.zubrzycki.rewards.api.dto.TransactionDto;
-import pl.marcin.zubrzycki.rewards.entity.Transaction;
+import pl.marcin.zubrzycki.rewards.model.Transaction;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

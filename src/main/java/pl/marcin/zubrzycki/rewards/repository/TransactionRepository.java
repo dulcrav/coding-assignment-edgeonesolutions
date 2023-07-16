@@ -1,7 +1,7 @@
 package pl.marcin.zubrzycki.rewards.repository;
 
 import org.springframework.data.repository.CrudRepository;
-import pl.marcin.zubrzycki.rewards.entity.Transaction;
+import pl.marcin.zubrzycki.rewards.model.Transaction;
 
 import java.util.List;
 

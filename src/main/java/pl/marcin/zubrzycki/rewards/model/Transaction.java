@@ -1,4 +1,4 @@
-package pl.marcin.zubrzycki.rewards.entity;
+package pl.marcin.zubrzycki.rewards.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

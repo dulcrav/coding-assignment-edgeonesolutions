@@ -2,7 +2,7 @@ package pl.marcin.zubrzycki.rewards.service;
 
 import org.springframework.stereotype.Component;
 import pl.marcin.zubrzycki.rewards.api.dto.MonthlyRewardDto;
-import pl.marcin.zubrzycki.rewards.entity.Transaction;
+import pl.marcin.zubrzycki.rewards.model.Transaction;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

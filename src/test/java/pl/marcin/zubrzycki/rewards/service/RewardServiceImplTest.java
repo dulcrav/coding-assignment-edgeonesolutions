@@ -6,8 +6,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoSettings;
 import pl.marcin.zubrzycki.rewards.api.dto.MonthlyRewardDto;
 import pl.marcin.zubrzycki.rewards.api.dto.RewardDto;
-import pl.marcin.zubrzycki.rewards.entity.Transaction;
-import pl.marcin.zubrzycki.rewards.error.UserNotFound;
+import pl.marcin.zubrzycki.rewards.model.Transaction;
+import pl.marcin.zubrzycki.rewards.exception.UserNotFound;
 import pl.marcin.zubrzycki.rewards.repository.TransactionRepository;
 
 import java.math.BigDecimal;

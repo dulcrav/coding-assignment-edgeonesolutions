@@ -2,7 +2,7 @@ package pl.marcin.zubrzycki.rewards.mapper;
 
 import pl.marcin.zubrzycki.rewards.api.dto.NewTransactionDto;
 import pl.marcin.zubrzycki.rewards.api.dto.TransactionDto;
-import pl.marcin.zubrzycki.rewards.entity.Transaction;
+import pl.marcin.zubrzycki.rewards.model.Transaction;
 
 public class TransactionMapper {
     public static TransactionDto mapFrom(Transaction transaction) {

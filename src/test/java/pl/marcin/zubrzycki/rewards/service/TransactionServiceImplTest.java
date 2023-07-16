@@ -7,8 +7,8 @@ import org.mockito.junit.jupiter.MockitoSettings;
 import pl.marcin.zubrzycki.rewards.api.dto.EditTransactionDto;
 import pl.marcin.zubrzycki.rewards.api.dto.NewTransactionDto;
 import pl.marcin.zubrzycki.rewards.api.dto.TransactionDto;
-import pl.marcin.zubrzycki.rewards.entity.Transaction;
-import pl.marcin.zubrzycki.rewards.error.TransactionNotFound;
+import pl.marcin.zubrzycki.rewards.model.Transaction;
+import pl.marcin.zubrzycki.rewards.exception.TransactionNotFound;
 import pl.marcin.zubrzycki.rewards.repository.TransactionRepository;
 
 import java.math.BigDecimal;

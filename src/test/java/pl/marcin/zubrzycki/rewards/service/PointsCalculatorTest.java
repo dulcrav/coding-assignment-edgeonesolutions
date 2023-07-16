@@ -5,7 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import pl.marcin.zubrzycki.rewards.api.dto.MonthlyRewardDto;
-import pl.marcin.zubrzycki.rewards.entity.Transaction;
+import pl.marcin.zubrzycki.rewards.model.Transaction;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

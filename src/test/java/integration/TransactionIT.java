@@ -9,7 +9,7 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.SqlGroup;
 import pl.marcin.zubrzycki.rewards.api.dto.EditTransactionDto;
 import pl.marcin.zubrzycki.rewards.api.dto.NewTransactionDto;
-import pl.marcin.zubrzycki.rewards.entity.Transaction;
+import pl.marcin.zubrzycki.rewards.model.Transaction;
 import pl.marcin.zubrzycki.rewards.repository.TransactionRepository;
 
 import java.math.BigDecimal;
